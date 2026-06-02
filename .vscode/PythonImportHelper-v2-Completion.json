@@ -1,0 +1,36 @@
+[
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "ChatGroq",
+        "importPath": "langchain_groq",
+        "description": "langchain_groq",
+        "isExtraImport": true,
+        "detail": "langchain_groq",
+        "documentation": {}
+    },
+    {
+        "label": "llm",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "llm = ChatGroq(model=\"llama-3.3-70b-versatile\", temperature=0)\nresponse = llm.invoke(\"What is RAG in AI?\")\nprint(response.content)",
+        "detail": "test",
+        "documentation": {}
+    },
+    {
+        "label": "response",
+        "kind": 5,
+        "importPath": "test",
+        "description": "test",
+        "peekOfCode": "response = llm.invoke(\"What is RAG in AI?\")\nprint(response.content)",
+        "detail": "test",
+        "documentation": {}
+    }
+]
