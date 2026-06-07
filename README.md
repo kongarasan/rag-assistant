@@ -69,7 +69,7 @@ python test.py
 
 - [x] Day 1 — LLM connection via Groq
 - [x] Day 2 — PDF loading + chunking
-- [ ] Day 3 — Embeddings + FAISS vector store
+- [x] Day 3 — Embeddings + FAISS vector store
 - [ ] Day 4 — Full RAG chain
 - [ ] Day 5 — FastAPI backend
 - [ ] Day 6 — React frontend

@@ -8,11 +8,95 @@
         "documentation": {}
     },
     {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "FAISS",
+        "importPath": "langchain_community.vectorstores",
+        "description": "langchain_community.vectorstores",
+        "isExtraImport": true,
+        "detail": "langchain_community.vectorstores",
+        "documentation": {}
+    },
+    {
+        "label": "HuggingFaceEmbeddings",
+        "importPath": "langchain_huggingface",
+        "description": "langchain_huggingface",
+        "isExtraImport": true,
+        "detail": "langchain_huggingface",
+        "documentation": {}
+    },
+    {
+        "label": "load_and_chunk",
+        "importPath": "loader",
+        "description": "loader",
+        "isExtraImport": true,
+        "detail": "loader",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "PyPDFLoader",
+        "importPath": "langchain_community.document_loaders",
+        "description": "langchain_community.document_loaders",
+        "isExtraImport": true,
+        "detail": "langchain_community.document_loaders",
+        "documentation": {}
+    },
+    {
+        "label": "RecursiveCharacterTextSplitter",
+        "importPath": "langchain_text_splitters",
+        "description": "langchain_text_splitters",
+        "isExtraImport": true,
+        "detail": "langchain_text_splitters",
+        "documentation": {}
+    },
+    {
         "label": "ChatGroq",
         "importPath": "langchain_groq",
         "description": "langchain_groq",
         "isExtraImport": true,
         "detail": "langchain_groq",
+        "documentation": {}
+    },
+    {
+        "label": "build_vector_store",
+        "kind": 2,
+        "importPath": "embeddings",
+        "description": "embeddings",
+        "peekOfCode": "def build_vector_store(pdf_path: str):\n    # Step 1: Load and chunk the PDF\n    chunks = load_and_chunk(pdf_path)\n    # Step 2: Create embeddings (free, runs locally)\n    print(\"\\nGenerating embeddings...\")\n    embeddings = HuggingFaceEmbeddings(model_name=\"all-MiniLM-L6-v2\")\n    # Step 3: Store in FAISS\n    print(\"Building FAISS vector store...\")\n    vector_store = FAISS.from_documents(chunks, embeddings)\n    # Step 4: Save locally",
+        "detail": "embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "search",
+        "kind": 2,
+        "importPath": "embeddings",
+        "description": "embeddings",
+        "peekOfCode": "def search(query: str, vector_store):\n    print(f\"\\nQuery: {query}\")\n    results = vector_store.similarity_search(query, k=3)\n    for i, doc in enumerate(results):\n        print(f\"\\n--- Result {i + 1} ---\")\n        print(doc.page_content)\nif __name__ == \"__main__\":\n    if len(sys.argv) < 2:\n        print(\"Usage: python embeddings.py path/to/your.pdf\")\n    else:",
+        "detail": "embeddings",
+        "documentation": {}
+    },
+    {
+        "label": "load_and_chunk",
+        "kind": 2,
+        "importPath": "loader",
+        "description": "loader",
+        "peekOfCode": "def load_and_chunk(pdf_path: str):\n    # Load PDF\n    print(f\"Loading PDF: {pdf_path}\")\n    loader = PyPDFLoader(pdf_path)\n    pages = loader.load()\n    print(f\"Total pages loaded: {len(pages)}\")\n    # Split into chunks\n    splitter = RecursiveCharacterTextSplitter(\n        chunk_size=500,\n        chunk_overlap=50,",
+        "detail": "loader",
         "documentation": {}
     },
     {
